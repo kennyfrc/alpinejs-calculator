@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="calculator.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body x-data="calculator()">
+    <div class="calculator">
+        <div class="calculator__display">
+            <div class="calculator__result" x-text="result"></div>
+            <div class="calculator__input" x-text="currentInput"></div>
+            <div class="calculator__status" x-text="operation"></div>
+        </div>
+        <div class="calculator__keys">
+            <button class="calculator__key--function" @click="clearAll()">AC</button>
+            <button class="calculator__key--function" @click="toggleSign()">±</button>
+            <button class="calculator__key--function" @click="inputOperation('%')">%</button>
+            <button class="calculator__key--operation" @click="inputOperation('/')">÷</button>
+
+            <button @click="inputDigit('7')">7</button>
+            <button @click="inputDigit('8')">8</button>
+            <button @click="inputDigit('9')">9</button>
+            <button class="calculator__key--operation" @click="inputOperation('*')">×</button>
+
+            <button @click="inputDigit('4')">4</button>
+            <button @click="inputDigit('5')">5</button>
+            <button @click="inputDigit('6')">6</button>
+            <button class="calculator__key--operation" @click="inputOperation('-')">−</button>
+
+            <button @click="inputDigit('1')">1</button>
+            <button @click="inputDigit('2')">2</button>
+            <button @click="inputDigit('3')">3</button>
+            <button class="calculator__key--operation" @click="inputOperation('+')">+</button>
+
+            <button @click="inputDigit('0')" class="calculator__key--double">0</button>
+            <button @click="inputDigit('.')">.</button>
+            <button class="calculator__key--operation" @click="calculate()">=</button>
+        </div>
+    </div>
+</body>
+</html>
