@@ -26,7 +26,7 @@ You can also play around with the calculator using JS Fiddle: [https://jsfiddle.
 
 
 ## Understanding the HTML Structure
-Our calculator consists of a display section and a set of keys. The display shows the current input, the operation selected, and the result. The keys include digits, operations, and function buttons.
+The calculator is composed of a display section and a set of keys. The display shows the current input, the operation selected, and the result. The keys include digits, operations, and function buttons.
 
 ### Display Section
 - **Calculator Result (`calculator__result`)**: Displays the calculated result.
@@ -60,14 +60,17 @@ Here's an overview of the JavaScript functions we'll implement:
 - **`calculate()`**: Performs the calculation based on the current inputs and operation.
 - **`clearAll()`**: Clears all inputs and results.
 - **`toggleSign()`**: Toggles the sign of the current input.
+- **`inputDecimal()`**: Handles decimal point input.
+- **`calculatePercentage()`**: Calculates the percentage of the current input.
 
-### Sample Implementation
+### Skeleton Implementation
 ```javascript
 function calculator() {
     return {
         result: '',
-        currentInput: '',
+        currentInput: '0',
         operation: null,
+        previousKey: '',
 
         inputDigit(digit) {
             // Code to handle digit input
@@ -83,6 +86,12 @@ function calculator() {
         },
         toggleSign() {
             // Code to toggle the sign of the current input
+        },
+        inputDecimal() {
+            // Code to handle decimal point input
+        },
+        calculatePercentage() {
+            // Code to calculate the percentage of the current input
         }
     };
 }
