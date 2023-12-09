@@ -18,14 +18,24 @@ function calculator() {
             this.currentInput = '';
         },
         inputDigit(digit) {
-            if (this.previousKey === 'operator' || this.previousKey === 'calculate') {
-                this.currentInput = '0';
-            }
-            if (this.currentInput === '0') {
-                this.currentInput = '';
-            }
-            this.currentInput += digit;
-            this.previousKey = 'digit';
+          const maxDigits = 10;
+
+          if (this.currentInput === 'Infinity') {
+              return;
+          }
+
+          if (this.previousKey === 'operator' || this.previousKey === 'calculate') {
+              this.currentInput = '0';
+          }
+          if (this.currentInput === '0') {
+              this.currentInput = '';
+          }
+          this.currentInput += digit;
+          this.previousKey = 'digit';
+
+          if (this.currentInput.length > maxDigits) {
+              this.currentInput = parseFloat(this.currentInput).toExponential(3);
+          }
         },
         inputDecimal() {
           if (!this.currentInput.includes('.')) {
@@ -56,6 +66,8 @@ function calculator() {
             let calculationResult;
             const current = parseFloat(this.currentInput);
             const previous = parseFloat(this.result);
+            const maxDigits = 10;
+
             if (isNaN(previous) || isNaN(current)) return;
 
             switch (this.operation) {
@@ -77,6 +89,13 @@ function calculator() {
                     break;
                 default:
                     return;
+            }
+
+            if (calculationResult.toString().length > maxDigits || calculationResult === 0) {
+                calculationResult = calculationResult.toExponential(3);
+            } else {
+                const decimalPlaces = maxDigits - Math.floor(calculationResult).toString().length;
+                calculationResult = parseFloat(calculationResult.toFixed(decimalPlaces < 0 ? 0 : decimalPlaces));
             }
 
             this.currentInput = String(calculationResult);
