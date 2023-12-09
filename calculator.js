@@ -54,7 +54,7 @@ function calculator() {
             const current = parseFloat(this.currentInput);
             const previous = parseFloat(this.result);
             if (isNaN(previous) || isNaN(current)) return;
-
+            
             switch (this.operation) {
                 case '+':
                     calculationResult = previous + current;

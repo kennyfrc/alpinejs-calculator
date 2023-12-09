@@ -1,5 +1,5 @@
 .calculator {
-    max-width: 230px;
+    max-width: 265px;
     background: #333;
     padding: 20px;
     border-radius: 20px;
@@ -33,9 +33,10 @@
 }
 
 .calculator__result {
-    font-size: 1.5rem;
+    font-size: 1rem;
     text-align: right;
     opacity: 0.5;
+    min-height: 2rem;
 }
 
 .calculator__keys {
@@ -53,6 +54,8 @@
     background: #4d4d4d;
     box-shadow: 0 4px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s;
+    min-width: 60px;
+    max-width: 60px;
 }
 
 .calculator__keys button:active {

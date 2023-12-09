@@ -22,7 +22,7 @@ Alternatively, you can also use other one-liner HTTP servers through this link: 
 
 ## JS Fiddle
 
-You can also play around with the calculator using JS Fiddle: [https://jsfiddle.net/kennyfrc12/h9y3maoL/47/](https://jsfiddle.net/kennyfrc12/h9y3maoL/47/).
+You can also play around with the calculator using JS Fiddle: [https://jsfiddle.net/kennyfrc12/h9y3maoL/80/](https://jsfiddle.net/kennyfrc12/h9y3maoL/80/).
 
 
 ## Understanding the HTML Structure
