@@ -4,31 +4,34 @@
  */
 function calculator() {
     return {
-        currentInput: '',
+        currentInput: '0',
         result: '',
         operation: null,
         previousKey: '',
         clearAll() {
-            this.currentInput = '';
-            this.result = '';
-            this.operation = null;
-            this.previousKey = '';
+          this.currentInput = '0';
+          this.result = '';
+          this.operation = null;
+          this.previousKey = '';
         },
         clearEntry() {
             this.currentInput = '';
         },
         inputDigit(digit) {
             if (this.previousKey === 'operator' || this.previousKey === 'calculate') {
+                this.currentInput = '0';
+            }
+            if (this.currentInput === '0') {
                 this.currentInput = '';
             }
             this.currentInput += digit;
             this.previousKey = 'digit';
         },
         inputDecimal() {
-            if (!this.currentInput.includes('.')) {
-                this.currentInput += '.';
-            }
-            this.previousKey = 'decimal';
+          if (!this.currentInput.includes('.')) {
+              this.currentInput += '.';
+          }
+          this.previousKey = 'decimal';
         },
         inputOperation(operator) {
             if (this.operation && this.previousKey === 'digit') {
@@ -45,7 +48,7 @@ function calculator() {
         calculatePercentage() {
             if (this.currentInput) {
                 this.currentInput = String(parseFloat(this.currentInput) / 100);
-                this.result = '';
+                this.result = this.currentInput;
             }
             this.previousKey = 'percentage';
         },
@@ -54,7 +57,7 @@ function calculator() {
             const current = parseFloat(this.currentInput);
             const previous = parseFloat(this.result);
             if (isNaN(previous) || isNaN(current)) return;
-            
+
             switch (this.operation) {
                 case '+':
                     calculationResult = previous + current;

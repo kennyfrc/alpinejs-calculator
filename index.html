@@ -18,7 +18,7 @@
         <div class="calculator__keys">
             <button class="calculator__key--function" @click="clearAll()">AC</button>
             <button class="calculator__key--function" @click="toggleSign()">±</button>
-            <button class="calculator__key--function" @click="inputOperation('%')">%</button>
+            <button class="calculator__key--function" @click="calculatePercentage()">%</button>
             <button class="calculator__key--operation" @click="inputOperation('/')">÷</button>
 
             <button @click="inputDigit('7')">7</button>
@@ -37,7 +37,7 @@
             <button class="calculator__key--operation" @click="inputOperation('+')">+</button>
 
             <button @click="inputDigit('0')" class="calculator__key--double">0</button>
-            <button @click="inputDigit('.')">.</button>
+            <button @click="inputDecimal()">.</button>
             <button class="calculator__key--operation" @click="calculate()">=</button>
         </div>
     </div>
