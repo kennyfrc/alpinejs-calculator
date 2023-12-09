@@ -1,6 +1,6 @@
 # Alpine.js Calculator
 
-This project is a simple calculator built using Alpine.js, HTML, CSS, and JavaScript.
+This project is a simple calculator built using Alpine.js, HTML, and CSS.
 
 ## Files
 
